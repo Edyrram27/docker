@@ -1,0 +1,23 @@
+{
+  "services": [
+    {
+      "name": "odoo",
+      "dockerfilePath": "17.0/Dockerfile",
+      "env": {
+        "HOST": "odoodb",
+        "USER": "odoo",
+        "PASSWORD": "odoo",
+        "ADMIN_PASSWORD": "admin"
+      }
+    },
+    {
+      "name": "db",
+      "image": "postgres:13",
+      "env": {
+        "POSTGRES_DB": "postgres",
+        "POSTGRES_PASSWORD": "odoo",
+        "POSTGRES_USER": "odoo"
+      }
+    }
+  ]
+}
