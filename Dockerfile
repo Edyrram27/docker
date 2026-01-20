@@ -3,7 +3,7 @@ FROM odoo:17.0
 
 # Copiamos los módulos personalizados (si existen) a la carpeta de addons de Odoo
 # Asegúrate de tener una carpeta llamada "addons" en la raíz del repositorio si tienes módulos personalizados
-COPY ./addons /mnt/extra-addons
+# COPY ./addons /mnt/extra-addons
 
 # Instalamos dependencias adicionales (ejemplo: librerías para reportes PDF, etc.)
 USER root
