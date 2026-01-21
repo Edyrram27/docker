@@ -1,11 +1,9 @@
-# Usamos la imagen oficial de Odoo 17
 FROM odoo:17.0
 
-# Copiamos los módulos personalizados (si existen) a la carpeta de addons de Odoo
-# Asegúrate de tener una carpeta llamada "addons" en la raíz del repositorio si tienes módulos personalizados
+# Copia los módulos personalizados si existen
 # COPY ./addons /mnt/extra-addons
 
-# Instalamos dependencias adicionales (ejemplo: librerías para reportes PDF, etc.)
+# Instala dependencias adicionales si es necesario
 USER root
 RUN apt-get update && apt-get install -y \
     python3-pip \
@@ -20,3 +18,9 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 USER odoo
+
+# Expón el puerto de Odoo
+EXPOSE 8069
+
+# Inicia Odoo
+CMD ["odoo"]
