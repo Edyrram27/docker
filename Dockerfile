@@ -1,9 +1,10 @@
 FROM odoo:17.0
 
+COPY odoo.conf /etc/odoo/odoo.conf
+
 # Copia los módulos personalizados si existen
 # COPY ./addons /mnt/extra-addons
 
-# Instala dependencias adicionales si es necesario
 USER root
 RUN apt-get update && apt-get install -y \
     python3-pip \
@@ -19,8 +20,6 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 USER odoo
 
-# Expón el puerto de Odoo
 EXPOSE 8069
 
-# Inicia Odoo
 CMD ["odoo"]
