@@ -1,3 +1,8 @@
 FROM odoo:17.0
 
+ENV PGHOST=postgres.railway.internal
+ENV PGPORT=5432
+ENV PGUSER=postgres
+ENV PGPASSWORD=${PGPASSWORD}
+
 EXPOSE 8069
